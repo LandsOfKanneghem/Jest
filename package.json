@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@testing-library/user-event": "^13.5.0",
+    "gh-pages": "^6.3.0",
     "pixi.js": "^8.2.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -15,11 +16,14 @@
     "sass": "^1.85.1",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "https://LandsOfKanneghem.github.io/Jest",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+	"predeploy": "npm run build",
+	"deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
