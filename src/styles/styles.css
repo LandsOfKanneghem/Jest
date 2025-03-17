@@ -1,0 +1,467 @@
+* {
+    box-sizing: border-box;
+    user-select: none;
+    margin: 0;
+    padding: 0;
+    /*font-family: roboto;*/
+}
+
+body {
+
+}
+
+.game {
+    padding: 0px;   
+}
+
+.battle {
+    display: flex;
+    position: relative;
+}
+
+
+/*SPELL BOOK*/
+
+
+.spell-book {
+    position: absolute;
+    width: 750px;
+    height: 500px;
+    background-color: rgb(106, 197, 222);
+    z-index: 20;
+}
+
+.spell-book--schools-block {
+    height: 60px;
+    padding: 5px;
+    border-bottom: 2px black solid;
+}
+
+.spell-book--school-button {
+    height: 48px;
+    background-color: rgb(234, 215, 198); 
+    margin-right: 4px;
+    border: 2px rgb(80, 40, 5) solid;
+    cursor: pointer;
+}
+.spell-book--school-button:hover {
+    background-color: rgb(203, 168, 127)
+}
+
+.spell-book--spells-block {
+    padding: 5px;
+}
+
+.sp-book--sp-level {
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.sp-book--sp-level--num {
+    display: inline-flex;
+    vertical-align: top;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(rgb(217, 233, 248), rgb(188, 217, 245));
+    margin-right: 10px;
+    border: 4px rgb(26, 134, 177) outset;
+}
+
+
+/*BATTLE FIELD*/
+
+
+.battle--field {
+    width: 750px;
+    /*height: 500px;*/
+}
+
+.highlight {
+    background-color: lightgreen !important;
+}
+
+
+/*BATTLE MENU*/
+
+
+.battle--menu {
+    width: 440px;
+    background-color: rgb(212, 250, 255);
+    padding: 5px;
+    margin-left: 1px;
+    border: 1px rgb(49, 28, 0) solid;
+}
+
+.battle--menu--buttons-block {
+    height: 50px;
+    margin-bottom: 5px;
+}
+
+.battle--menu--button {
+    height: 48px;
+    background-color: rgb(234, 215, 198); 
+    margin-right: 5px;
+    border: 2px rgb(80, 40, 5) solid;
+    cursor: pointer;
+}
+.battle--menu--button:hover {
+    background-color: rgb(203, 168, 127)
+}
+
+.battle--menu--btnDesc {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.9em;
+    width: 100px;
+    height: 48px;
+}
+
+
+/*CREATURE INFO*/
+
+
+.battle--creature-info {
+    display: flex;
+    flex-direction: column;
+    /*width: 100%;*/
+}
+
+/*CREATURE INFO TABLE*/
+
+.crinfo--table {
+    background-color: rgb(80, 40, 5);
+    color: rgb(80, 40, 5);
+    margin-top: -2px;
+    border: 1px rgb(80, 40, 5) solid;
+}
+
+.crinfo--table--coords {
+    float: right;
+    margin-right: 10px;
+}
+
+.crinfo--table tr {
+	text-align: center;  
+    height: 25px;
+}
+
+.crinfo--table td {
+    width: 60px;
+    font-weight: bold;
+    background-color: rgb(234, 215, 198); 
+}
+
+.crinfo--table--main {
+    background-color: rgb(80, 40, 5);
+    color: rgb(80, 40, 5);
+    border: 1px rgb(80, 40, 5) solid;
+}
+
+.crinfo--table--main tr {
+    text-align: left;
+    height: 25px;
+}
+
+.crinfo--table--main td {
+    font-weight: bold;
+    background-color: rgb(234, 215, 198);
+    padding-left: 5px;
+}
+
+.crinfo--table--main .main-td-1 {
+    width: 90px;
+}
+
+.crinfo--table--main .main-td-2 {
+    width: 120px;
+}
+
+.crinfo--table--main .main-td-3 {
+    width: 60px;
+}
+
+.crinfo--table--main--imgTd {
+    text-align: center;
+    width: 90px; 
+    background-color: rgb(180, 146, 108) !important;
+    padding: 0px !important;
+}
+
+.crinfo--table--main--img {
+    width: 64px;
+    height: 64px;
+}
+
+.crinfo--table--main--logo {
+    width: 20px;
+    height: 20px;
+}
+
+.current-turn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 28px;
+    font-weight: bold;
+    background-color: rgb(234, 215, 198);
+    color: rgb(80, 40, 5);
+    margin: 5px 0;
+    border: 2px rgb(80, 40, 5) solid;
+}
+
+
+/*BATTLE QUEUE*/
+
+
+.battle--queue {
+    background-color: rgb(217, 233, 248);
+    padding: 2px;
+    margin-bottom: 10px;
+    border: 1px black solid;
+}
+
+.battle--queue--img {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(rgb(217, 233, 248), rgb(188, 217, 245));
+    border: 2px rgb(26, 134, 177) outset;
+    cursor: pointer;
+}
+.battle--queue--img:hover {
+    background: linear-gradient(rgb(188, 217, 245), rgb(133, 142, 224));
+}
+
+
+/*SKILL BAR*/
+
+
+.skill-bar {
+    width: 750px;
+    height: 100px;
+    margin-top: -3px;
+}
+
+.skill--item {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(rgb(217, 233, 248), rgb(188, 217, 245));
+    border: 4px rgb(26, 134, 177) outset;
+    cursor: pointer;
+}
+.skill--item:hover {
+    background: linear-gradient(rgb(188, 217, 245), rgb(133, 142, 224));
+}
+
+.skill--item img {
+    width: 42px;
+    height: 42px;
+}
+
+.not-available {
+    background: linear-gradient(rgb(95, 178, 255), rgb(71, 86, 222)) !important;
+}
+
+.skill--tooltip {
+    position: absolute;
+    width: 340px;
+    background-color: rgb(29, 35, 34);
+    color: white;
+    border: 30px solid;
+    border-image: url("img/blueframe.png") 50 50 50 50 repeat;
+    z-index: 100;
+}
+
+.skill-bar-pos {
+    bottom: 50px;
+    left: -4px;
+}
+
+.spell-book-pos {
+    top: 70px;
+    left: 340px;
+}
+
+.tooltip--content {
+    margin: -15px -5px -5px -5px;
+}
+
+.tooltip--header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+.tooltip--header--status-no-desc {
+    margin-top: 10px;
+}
+
+.tooltip--header-name {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.tooltip--header-image {
+    position: absolute;
+    right: -10px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(rgb(217, 233, 248), rgb(188, 217, 245));
+    border: 4px rgb(26, 134, 177) outset;
+}
+
+.tooltip--description {
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.unit-effect-header {
+    font-weight: bold;
+    color: rgb(13, 9, 132);
+    margin-bottom: 7px;
+}
+
+
+/*UNIT EFFECTS*/
+
+
+.unit-effects {
+    margin-bottom: 7px;
+}
+
+.unit-effects--item {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(rgb(217, 233, 248), rgb(188, 217, 245));
+    border: 4px rgb(26, 134, 177) outset;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.unit-effects--tooltip {
+    position: absolute;
+    bottom: 40px;
+    left: -100px;
+    width: 225px;
+    background-color: rgb(29, 35, 34);
+    color: white;
+    border: 30px solid;
+    border-image: url("img/blueframe.png") 50 50 50 50 repeat;
+}
+
+.buff-effect-text {
+    display: block;
+    color: lightgreen;
+}
+
+.debuff-effect-text {
+    display: block;
+    color: red;
+}
+
+.negative-effect-icon {
+    /*background: linear-gradient(rgb(238, 161, 161), rgb(219, 59, 59)) !important;*/
+    border-color: rgb(219, 59, 59) !important;
+}
+
+.positive-effect-icon {
+    /*background: linear-gradient(rgb(154, 241, 163), rgb(52, 221, 91)) !important;*/
+    border-color: rgb(52, 221, 91) !important;
+}
+
+.neutral-effect-icon {
+    /*background: linear-gradient(rgb(217, 233, 248), rgb(188, 217, 245)) !important;*/
+    border-color: rgb(26, 134, 177) !important;
+}
+
+
+/*ТУЛТИПЫ ПОВЕРХНОСТЕЙ*/
+
+.surface-tooltip {
+    position: absolute;
+    width: 240px;
+    background-color: rgb(29, 35, 34);
+    color: white;
+    /*margin: -15px -5px -5px -5px;*/
+    border: 30px solid;
+    border-image: url("img/blueframe.png") 50 50 50 50 repeat;
+    z-index: 1000;
+}
+
+.surface-tooltip--header {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.surface-tooltip--terrain {
+    margin: -10px -10px -15px -5px;
+}
+
+.surface-tooltip--surface {
+    margin: 10px -10px -15px -5px;
+}
+
+.surface-tooltip hr {
+    height: 1px;
+    background-color: white;
+    margin: 20px -10px 0 -5px;
+}
+
+.hr-marginTop {
+    margin-top: 30px !important;
+}
+
+.surface-tooltip img {
+    display: inline-block;
+    margin: 0 10px 8px 0;
+}
+
+.surface-tooltip--params {
+    display: inline-block;
+}
+
+.surface-tooltip--description {
+    font-style: italic;
+    margin-top: 2px;
+}
+
+
+/*ДОП СТИЛИ*/
+
+
+.margin-right {
+    margin-right: 5px;
+}
+
+.position-relative {
+    position: relative;
+}
+
+
+/*КОНЕЦ БИТВЫ*/
+.GG {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    background-color: rgb(136, 245, 136);
+    color: black;
+    width: 100px;
+    height: 100px;
+    border: 10px black solid;
+    transform: translate(-50%, -50%);
+}
+
+.check-color {
+    background-color: rgb(255, 0, 0)
+}

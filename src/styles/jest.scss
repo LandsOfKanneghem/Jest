@@ -1,0 +1,503 @@
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url(./fonts/PressStart2P-Regular.ttf);
+}
+
+@mixin flexObj($display, $alItems, $justCont, $flexDir) {
+    display: $display;
+    align-items: $alItems;
+    justify-content: $justCont;
+    text-align: center;
+    flex-direction: $flexDir;
+}
+
+* {
+    font-family: 'Press Start 2P';
+    box-sizing: border-box;
+    user-select: none;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-y: hidden;
+}
+
+.jest-global-style {
+    padding: 0px;   
+}
+
+.jest {
+    @include flexObj(flex, center, center, row);
+    width: 1100px;
+    padding: 0px;
+    margin: 0px auto;
+}
+.blackout {opacity: 50%; pointer-events: none;}
+.hide {display: none !important; pointer-events: none;}
+
+.turn-number {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 12px;
+    line-height: 20px;
+    width: 150px;
+    background-color: rgb(244, 221, 139);
+    color: rgb(104, 57, 13);
+    padding: 5px 0;
+    border: 2px #665423 solid;
+}
+
+.jest--content, .jest--main-block, .player-block, .AI-block {
+    @include flexObj(flex, center, center, initial);
+    margin: 0px auto;
+}
+.jest--content {flex-direction: column;}
+.jest--main-block, .player-block, .AI-block {flex-direction: row;}
+.player-block {background-color: rgb(143, 244, 255);}
+.AI-block {background-color: rgb(165, 255, 113);}
+
+.jest--bottom-block {
+    position: relative;
+    margin-top: 20px;
+}
+
+.jest--bottom-block--start--button {
+    position: absolute;
+    top: 0px;
+    right: -120px;
+    font-size: 14px;
+    line-height: 20px;
+    width: 100px;
+    background: linear-gradient(to right, rgb(153, 255, 122), rgb(56, 255, 63));
+    color: rgb(20, 17, 173);
+    padding: 10px;
+    border: 2px rgb(28, 112, 11) solid;
+    cursor: pointer;
+    user-select: none;
+    &:hover {
+        background: linear-gradient(to right, rgb(140, 234, 111), rgb(51, 235, 58));
+        color: rgb(13, 11, 112);
+        border-color: rgb(19, 76, 7);
+    }
+}
+
+//боковые блоки: аватар игрока + счет
+.player-info {
+    @include flexObj(flex, initial, initial, column-reverse);
+    width: 100px;
+    height: 450px;
+}
+
+.player-points {
+    @include flexObj(flex, center, center, initial);
+    width: 100px;
+    height: 35px;
+    font-size: 11px;
+    background-color: rgb(244, 221, 139);
+    color: rgb(104, 57, 13);
+    margin-bottom: 10px;
+    border: 2px #665423 solid;
+}
+
+.player-avatar {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(244, 221, 139);
+    border: 2px #665423 solid;
+}
+
+.player-avatar--img {
+    width: 100%;
+    height: 100%;
+}
+
+//стили карт во время игры
+.jest--view-cards {
+    @include flexObj(flex, end, initial, row);
+    flex-wrap: wrap;
+    height: 450px;
+    width: 280px;
+}
+
+.casual-cards, .special-cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.player-cards {margin-left: 10px;}
+.AI-cards {margin-right: 10px;}
+
+.card, .null-card {
+    @include flexObj(inline-flex, center, center, initial);
+    font-size: 11px;
+    font-weight: bold;
+    width: 90px;
+    height: 130px;
+    margin: 5px 5px 0 0;
+    border: 2px rgb(0, 0, 0) solid;
+    border-radius: 15px;
+    cursor: pointer;
+    user-select: none;
+}
+.player-cards .card:nth-child(3n), 
+.AI-cards .card:nth-child(3n), 
+.null-card:nth-child(3n) {
+    margin-right: 0px !important;
+}
+.card:hover {
+    border-color: rgb(0, 251, 255);
+}
+
+.null-card {
+    background: linear-gradient(to bottom, rgb(167, 178, 167), white, rgb(167, 178, 167));
+    cursor: auto;
+}
+.not-clickable {pointer-events: none;}
+
+.card-value {
+    @include flexObj(flex, center, center, initial);
+    width: 70px;
+    height: 30px;
+    color: white;
+    background-color: black;
+    margin: auto;
+    border: 2px white solid;
+    border-radius: 5px;
+}
+
+.spcard-img {
+    width: 20px;
+    height: 20px;
+}
+
+.hide {
+    display: none !important;
+}
+
+.green {
+    background: linear-gradient(to bottom, green, lightgreen, green) !important;
+}
+
+.red {
+    background: linear-gradient(to bottom, rgb(207, 6, 6), pink, rgb(207, 6, 6)) !important;
+}
+
+.purple {
+    background: linear-gradient(to bottom, rgb(164, 36, 181), rgb(238, 166, 241), rgb(164, 36, 181))  !important;
+    
+}
+
+.gold {
+    background: linear-gradient(to bottom, rgb(231, 177, 3), rgb(250, 255, 151), rgb(231, 177, 3))  !important;
+}
+
+//стили выполненных действий
+.jest--done-actions {
+    @include flexObj(flex, center, end, column-reverse);
+    width: 100px;
+    height: 450px;
+}
+.player-actions, .AI-actions {margin: 0px 10px;}
+
+.action {
+    @include flexObj(flex, center, center, initial);
+    position: relative;
+    width: 100%;
+    height: 35px;
+    margin: 4px auto 0 auto;
+    border: 2px black solid;
+    border-radius: 0px;
+    cursor: pointer;
+    user-select: none;
+    &:hover {
+        border-color: rgb(3, 102, 201);
+    }
+}
+
+//ПЕРЕЧЕРКИВАНИЕ (для отмененного действия)
+.canceled-action {}
+.canceled-action::after, .canceled-action::before {
+    position: absolute;
+    content: '';
+    top: 42%;
+    width: 50%;
+    height: 4px;
+    background-color: white;
+    border: 1px black solid;
+}
+.canceled-action::after {
+    transform: rotate(-20deg);
+}
+.canceled-action::before {
+    transform: rotate(20deg);
+}
+
+.action-value {
+    @include flexObj(flex, center, center, initial);
+    width: 30px;
+    height: 25px;
+    font-size: 10px;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    margin: auto;
+    border-radius: 5px;
+}
+
+.black-action {background: black;}
+.green-action {background: green;}
+.red-action {background: rgb(207, 6, 6);}
+.purple-action {background: rgb(164, 36, 181);}
+.gold-action {background: rgb(231, 177, 3);}
+
+.action-img {
+    width: 14px;
+    height: 14px;
+}
+
+//окно, которое появляется при розыгрыше спец карт для выбора параметров карты (например, Джокер или Чемпион)
+.set-new-card {
+    @include flexObj(flex, center, center, initial);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: white;
+    padding: 10px;
+    border: 2px black solid;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.set-new-card--panel {
+    @include flexObj(flex, center, center, column);
+    margin-right: 5px;
+}
+
+//кнопка для модиикации свойств карты (джокер)
+.modify-value-button {
+    @include flexObj(flex, center, center, initial);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(to right, rgb(252, 214, 26), rgb(255, 255, 169), rgb(252, 214, 26));
+    margin-bottom: 5px;
+    border: 2px black solid;
+    border-radius: 50%;
+}
+
+//выбор спецкарт перед началом игры или после розыгрыша Клевера
+.select-cards--menu {
+    position: relative;
+    display: block;
+    margin: 120px auto;
+    width: 1000px;
+}
+
+//кнопка для подтверждения выбранных карт
+.select-cards--button {
+    position: relative;
+    @include flexObj(flex, center, center, initial);
+    width: 50px;
+    height: 30px;
+    background: linear-gradient(to right, rgb(255, 255, 169), rgb(252, 214, 26));
+    margin: 0 auto 10px auto;
+    border: 2px #665423 solid;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+.select-cards--button:hover {border-color: black;}
+
+//кнопка для вызова правил игры
+.rules-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgb(244, 221, 139);
+    color: rgb(104, 57, 13);
+    font-size: 14px;
+    width: 140px !important;
+    width: 60px;
+    padding: 10px;
+    border: 2px rgb(104, 57, 13) solid;
+    z-index: 1000;
+}
+.rules-button:hover {
+    background-color: rgb(234, 211, 121);
+    color: black; 
+    border-color: black;
+}
+
+//правила игры
+.rules {
+    background-color: rgb(244, 221, 139);
+    color: rgb(104, 57, 13);
+    font-size: 12px;
+    line-height: 18px;
+    width: 900px;
+    margin: 20px auto;
+    padding: 10px;
+    border: 2px rgb(104, 57, 13) solid;
+    z-index: 1000;
+}
+.rules p {font-weight: bold;}
+.rules ol {
+    list-style-type: disc;
+    margin-left: 25px;
+}
+
+//блок снизу с различного рода информацией (описание карты, ообщение об окончании игры...)
+.info {
+    text-align: left;
+    background-color: rgb(244, 221, 139);
+    color: rgb(104, 57, 13);
+    font-size: 14px;
+    line-height: 20px;
+    width: 700px;
+    padding: 10px;
+    border: 2px rgb(104, 57, 13) solid;
+}
+
+//сообщение, что можно выбрать спец карты
+.choose-cards--top-block {
+    position: absolute;
+    top: -100px;
+    left: 200px;
+}
+
+//описание спец карт
+//top вычисляется в коде
+.card-description {
+    position: absolute;
+    left: 200px;
+}
+
+//мини карты - режим выбора карт
+.mini-card {
+    width: 67px; 
+    height: 97px; 
+    font-size: 8px; 
+    margin: 0 3px 6px 0;
+    border-width: 1px;
+    border-radius: 12px;
+}
+.is-chosen {border-color: blue !important; border-width: 2px !important;}
+
+.mini-value {
+    width: 52px; 
+    height: 20px;  
+    border-width: 1px;
+    border-radius: 5px;
+}
+.mini-spcard-img {
+    width: 12px;
+    height: 12px;
+}
+
+//ГАЛОЧКА
+
+#tick-mark {
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+#tick-mark::before {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 50%;
+    width: 3px;
+    background-color: #997e33;
+    content: "";
+    transform: translateX(10px) rotate(-45deg);
+    transform-origin: left bottom;
+}
+
+#tick-mark::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background-color: #997e33;
+    content: "";
+    transform: translateX(10px) rotate(-45deg);
+    transform-origin: left bottom;
+}
+
+.select-cards--button:hover #tick-mark::before {background-color: black;}
+.select-cards--button:hover #tick-mark::after {background-color: black;}
+
+
+
+//для выбора сложности (ВРЕМЕННО)
+.set-difficulty {
+    @include flexObj(flex, center, center, column);
+    margin: 15px auto;
+    background-color: white;
+}
+
+.set-difficulty--button {
+    @include flexObj(flex, center, center, initial);
+    color: rgb(244, 224, 124);
+    text-shadow: 1px 1px 1px black;
+    border-color: transparent !important;
+    font-size: 12px;
+    width: 200px;
+    height: 40px;
+    margin-bottom: 15px;
+    border: 10px solid;
+    border-image-width: 10px;
+    border-image-slice: 10 14 10 14;
+    border-image-outset: 5px;
+    border-image-repeat: stretch;
+    cursor: pointer;
+    user-select: none;
+    &:hover {
+        color: white;
+    }
+}
+
+$emeraldGradient: linear-gradient(to right bottom, rgb(6, 129, 39), rgb(21, 216, 96), rgb(6, 129, 39));
+$rubyGradient: linear-gradient(to right bottom, rgb(157, 3, 3), rgb(237, 48, 48), rgb(157, 3, 3));
+$saphireGradient: linear-gradient(to right bottom, rgb(0, 86, 171), rgb(82, 136, 244), rgb(0, 86, 171));
+$topazGradient: linear-gradient(to right bottom, rgb(101, 14, 138), rgb(194, 64, 250), rgb(101, 14, 138));
+$greyGradient: linear-gradient(to right bottom, rgb(35, 34, 34), rgb(110, 110, 110), rgb(35, 34, 34));
+
+$emeraldBorder: url("img/green-50-200.png");
+$rubyBorder: url("img/red-50-200.png");
+$saphireBorder: url("img/blue-50-200.png");
+$topazBorder: url("img/purple-50-200.png");
+$greyBorder: url("img/black-50-200.png");
+
+@mixin chooseDifficultyButton($background, $img) {
+	background: $background;
+	border-image-source: $img;
+    background-origin: border-box;
+}
+
+.emerald-button {
+    @include chooseDifficultyButton($emeraldGradient, $emeraldBorder);
+}
+.ruby-button {
+    @include chooseDifficultyButton($rubyGradient, $rubyBorder);
+}
+.saphire-button {
+    @include chooseDifficultyButton($saphireGradient, $saphireBorder);
+}
+.topaz-button {
+    @include chooseDifficultyButton($topazGradient, $topazBorder);
+}
+.death-button {
+    @include chooseDifficultyButton($greyGradient, $greyBorder);
+}
